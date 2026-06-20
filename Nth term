@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+// Complete the following function.
+int find_nth_term(int n, int a, int b, int c) {
+    // Base Case 1: First term of the series
+    if (n == 1) {
+        return a;
+    }
+    // Base Case 2: Second term of the series
+    if (n == 2) {
+        return b;
+    }
+    // Base Case 3: Third term of the series
+    if (n == 3) {
+        return c;
+    }
+    
+    // Recursive Step: Sum of the previous three terms
+    return find_nth_term(n - 1, a, b, c) + 
+           find_nth_term(n - 2, a, b, c) + 
+           find_nth_term(n - 3, a, b, c);
+}
+
+int main() {
+    int n, a, b, c;
+  
+    // Read the values of n, a, b, and c from standard input
+    if (scanf("%d %d %d %d", &n, &a, &b, &c) == 4) {
+        int ans = find_nth_term(n, a, b, c);
+        printf("%d\n", ans);
+    }
+    
+    return 0;
+}
